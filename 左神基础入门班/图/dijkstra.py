@@ -41,9 +41,9 @@ class Solution:
                     index = (index - 1) // 2
                 
             def addOrUpdateOrIgnore(self, node, distance):
-                if node in self.distanceMap:
+                if node in self.headIndexMap and self.headIndexMap[node] != -1:
                     self.distanceMap[node] = min(self.distanceMap[node], distance)
-                else:
+                if node not in self.headIndexMap:
                     self.distanceMap[node] = distance
                     self.headIndexMap[node] = self.size
                     self.nodes.append(node)

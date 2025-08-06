@@ -57,3 +57,20 @@ class Trie:
                 return 0
             node = node.nexts[index]
         return node.num_pass
+    
+
+if __name__ == '__main__':
+    trie = Trie()
+    trie.insert('abc')
+    trie.insert('ab')
+    print(trie.search('abc'))
+    print(trie.prefixNumber('ab'))
+    trie.delete('abc')
+    print(trie.search('abc'))
+
+
+
+
+
+
+
