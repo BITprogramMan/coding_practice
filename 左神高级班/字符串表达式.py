@@ -51,6 +51,7 @@ class Solution:
                     addNum(queue, pre)    
                     queue.append(s[i])
                     i += 1
+                    pre = 0
                 else:
                     bra = value(s, i + 1)
                     pre = bra[0]
