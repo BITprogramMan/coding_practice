@@ -19,7 +19,7 @@ class MinPathSum:
         return dp[-1][-1]
     
 
-    def minPathSum1(self, matrix):
+    def minPathSum1v1(self, matrix):
         """
         动态规划的空间压缩
         """

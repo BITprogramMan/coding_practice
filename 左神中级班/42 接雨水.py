@@ -38,6 +38,26 @@ class Solution:
                 right_max = max(right_max, height[r])
                 r -= 1
         return res
+    
+    def trapv2(self, height: List[int]) -> int:
+        ans = 0
+        stack = []
+        n = len(height)
+        for i in range(n):
+            while stack and height[i] > height[stack[-1]]:
+                top = stack.pop()
+                if not stack:
+                    break
+                width = i - 1 - stack[-1]
+                ans += (min(height[i], height[stack[-1]]) - height[top]) * width
+            stack.append(i)
+        return ans
+
+if __name__ == '__main__':
+    solution = Solution()
+    height = [0,1,0,2,1,0,1,3,2,1,2,1]
+    res = solution.trapv2(height)
+    print(res)
 
 
 
