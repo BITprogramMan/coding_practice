@@ -1,5 +1,8 @@
 from typing import List
 class Solution:
+    """
+    扑克牌先后手游戏
+    """
     def CardsInLine(self, nums: List[int]) -> int:
         if len(nums) < 1:
             return 0
