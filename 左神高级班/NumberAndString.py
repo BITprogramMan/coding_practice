@@ -38,8 +38,9 @@ class Solution:
         num_curr = 0
         while index != total_len:
             curr = curr / base
-            num_curr = n / curr
+            num_curr = int (n / curr)
             res[index] = self.getKthCharAtChs(chs, num_curr + 1)
+            index += 1
             n = n % curr
         return ''.join(res)
 
@@ -56,3 +57,10 @@ class Solution:
             res += self.getNthFromChar(chs, source_str[i]) * curr
             curr = curr * base
         return res
+    
+
+if __name__ == '__main__':
+    solution = Solution()
+    chs = ['A', 'B', 'C']
+    res = solution.NumberAndString(chs, 8)
+    print(res)
