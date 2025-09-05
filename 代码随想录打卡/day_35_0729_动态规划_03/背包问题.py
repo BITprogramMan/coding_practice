@@ -12,5 +12,14 @@ class Solution:
                     dp[i][j] = max(dp[i - 1][j], dp[i][j - weights[i]] + values[i])
         return dp[n - 1][bag]
 
+    def process1(self, values, weights, bag):
+        dp = [0] * (bag + 1)
+        n = len(values)
+        for i in range(weights[0], bag + 1):
+            dp[i] = values[0]
+        for i in range(1, n):
+            for j in range(bag, weights[i] - 1, -1):
+                dp[j] = max(dp[j], dp[j - weights[i]] + values[i])
+        return dp[-1]
 
     
