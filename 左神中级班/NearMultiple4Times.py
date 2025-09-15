@@ -12,13 +12,13 @@ class Solution:
                 count['4times'] += 1
             else:
                 count['2times'] += 1
-            if count['2times'] == 0:
-                if count['odd'] == 1:
-                    return count['4times'] >= 1
-                else:
-                    return count['4times'] >= count['odd'] - 1
+        if count['2times'] == 0:
+            if count['odd'] == 1:
+                return count['4times'] >= 1
             else:
-                if count['2times'] & 1 == 1:
-                    return count['4times'] >= 1 and count['4times'] >= count['odd']
-                else:
-                    return count['4times'] >= count['odd']
+                return count['4times'] >= count['odd'] - 1
+        else:
+            if count['2times'] & 1 == 1:
+                return count['4times'] >= 1 and count['4times'] >= count['odd']
+            else:
+                return count['4times'] >= count['odd']

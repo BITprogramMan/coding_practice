@@ -15,7 +15,7 @@ class Solution:
     返回int类型的数组，表示每一个小伙伴按照牛牛的标准选工作后所能获得的报酬。
     """
     def choose_work(self, jobs, ability):
-        jobs.sort(key=lambda x:(x[0], -x[1]))
+        jobs.sort(key=lambda x:(x[0], -x[1])) # x[0]表示难度，x[1]表示报酬
         mapping = []
         mapping.append(jobs[0])
         pre = jobs[0]
