@@ -48,3 +48,7 @@ class Solution:
         if not head:
             return 0
         return numNodeOfCompleteTree(head, 1, mostLeftLevel(head, 1))
+
+
+
+
