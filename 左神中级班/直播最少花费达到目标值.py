@@ -25,7 +25,7 @@ class Solution:
                 return -1
             else:
                 limit =  (end - start) // 2 * x
-        if start & 1 == 1:
+        elif start & 1 == 1:
             if end & 1 == 1:
                 limit =  (end - start) // 2 * x
             else:
@@ -49,6 +49,25 @@ class Solution:
                 res = min(res, recursive(curr // 2, cost + y, cost_limit, start, x, y, z))
             return res
 
-
-
+    def processv1(self, x, y, z, start, end):
+        if start & 1 == 0:
+            if end & 1 == 1:
+                return -1
+            else:
+                limit_cost =  (end - start) // 2 * x
+        if start & 1 == 1:
+            if end & 1 == 1:
+                limit_cost =  (end - start) // 2 * x
+            else:
+                limit_cost = y
+                tmp_start = start * 2
+                if tmp_start >= end :
+                    limit_cost += (tmp_start - end) // 2 * x
+                else:
+                    limit_cost += (end - tmp_start) // 2 * z
+        limit_target = 2 * end
+        dp = [[float('inf')] * (limit_cost + 1) for _ in range(limit_target + 1)]
+        for i in range(limit_cost + 1):
+            dp[i][start] = i
+        
          

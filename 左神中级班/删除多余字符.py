@@ -13,19 +13,19 @@ class Solution:
             count[ord(ch) - ord('a')] += 1
         result = []
         L = 0
-        for R, ch in enumerate(s):
+        for R, ch in enumerate(s[L:]):
             idx = ord(ch) - ord('a')
             if count[idx] == -1:
                 continue
             count[idx] -= 1
             if count[idx] > 0:
                 continue
-            pick = min([i for i in range(L, R + 1) if count[ord(s[i]) - ord('a')] != -1], key=lambda x: s[x])
+            pick = min([i for i in range(L, L + R + 1) if count[ord(s[i]) - ord('a')] != -1], key=lambda x: s[x])
             picked_char = s[pick]
             result.append(picked_char)
             count[ord(picked_char) - ord('a')] = -1
 
-            for i in range(pick + 1, R + 1):
+            for i in range(pick + 1, L + R + 1):
                 char_dx = ord(s[i]) - ord('a')
                 if count[char_dx] != -1:
                     count[char_dx] += 1
