@@ -40,7 +40,7 @@ class Solution:
             return maxPathSumAll, maxPathSumHead
             
         allData = process(head)
-        return allData[-1] if allData[-1] < 0 else allData[0]
+        return allData[0]
 
 
     

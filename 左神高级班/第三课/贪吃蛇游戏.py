@@ -48,7 +48,7 @@ class Solution:
         if len(matrix) < 1 or len(matrix[0]) < 1:
             return 0
         m, n = len(matrix), len(matrix[0])
-        dp = [[[None] * 2 for _ in range(n)] for i in range(m)]
+        dp = [[[float('-inf')] * 2 for _ in range(n)] for i in range(m)]
         for i in range(m):
             dp[i][n - 1][0] = matrix[i][n - 1]
             dp[i][n - 1][1] = -matrix[i][n - 1]
