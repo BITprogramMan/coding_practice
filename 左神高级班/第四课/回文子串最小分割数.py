@@ -19,12 +19,12 @@ class Solution:
                 end -= 1
             return True
         def process(s, i, length):
-            if i >= length - 1 :
+            if i >= length - 1 or isValid(s, i, length - 1):
                 return 0
             ans = length - i
             for end in range(i, length):
                 if isValid(s, i, end):
-                    ans = min(ans, process(s, end + 1, length))
+                    ans = min(ans, 1 + process(s, end + 1, length))
             return ans
         return process(s, 0, len(s))
     
@@ -53,5 +53,5 @@ class Solution:
 if __name__ == '__main__':
     solution = Solution()
     s = "ACDCDCDAD"
-    res = solution.PalindromeMinCutv1(s)
+    res = solution.PalindromeMinCut(s)
     print(res)
